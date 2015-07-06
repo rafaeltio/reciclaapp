@@ -6,7 +6,7 @@
       "projectTypeName": "com.intel.xdk.projecttype.jsapp",
       "src": "appDesigner",
       "projectGuid": "e1829217-eaf5-46bf-b7b3-728db36069cd",
-      "lastModifiedDate": 1435939970994,
+      "lastModifiedDate": 1436141919849,
       "creationDate": 1435931355849
     },
     "XDK-app-designer": "true",
@@ -39,6 +39,15 @@
       {
         "id": "org.apache.cordova.geolocation",
         "version": "0.3.11",
+        "selectedState": "Included",
+        "data": {},
+        "paramvals": {},
+        "dependsOn": [],
+        "dependedBy": []
+      },
+      {
+        "id": "org.apache.cordova.vibration",
+        "version": "0.3.12",
         "selectedState": "Included",
         "data": {},
         "paramvals": {},
@@ -83,26 +92,81 @@
         "preferences_": {
           "android-minSdkVersion": "10",
           "android-targetSdkVersion": "19",
-          "android-installLocation": "auto"
+          "android-installLocation": "auto",
+          "Orientation": "portrait"
         },
         "isActive_": true,
-        "appName_": "reciclaapp",
-        "appID_": "xdk.intel.blank.ad.template",
+        "appName_": "Recicla App",
+        "appID_": "br.com.jupiter.reciclaapp",
         "appAccess_": [
           {
             "origin": "*"
           }
         ],
-        "icons_": [],
-        "splashes_": [],
+        "icons_": [
+          {
+            "relPath": "images/36x36.png",
+            "density": "ldpi",
+            "height": 36,
+            "width": 36
+          },
+          {
+            "relPath": "images/48x48.png",
+            "density": "mdpi",
+            "height": 48,
+            "width": 48
+          },
+          {
+            "relPath": "images/72x72.png",
+            "density": "hdpi",
+            "height": 72,
+            "width": 72
+          },
+          {
+            "relPath": "images/96x96.png",
+            "density": "xhdpi",
+            "height": 96,
+            "width": 96
+          }
+        ],
+        "splashes_": [
+          {
+            "relPath": "images/320x426.png",
+            "density": "ldpi",
+            "height": 426,
+            "width": 320,
+            "orientation": "portrait"
+          },
+          {
+            "relPath": "images/320x470.png",
+            "density": "mdpi",
+            "height": 470,
+            "width": 320,
+            "orientation": "portrait"
+          },
+          {
+            "relPath": "images/480x640.png",
+            "density": "hdpi",
+            "height": 640,
+            "width": 480,
+            "orientation": "portrait"
+          },
+          {
+            "relPath": "images/720x960.png",
+            "density": "xhdpi",
+            "height": 960,
+            "width": 720,
+            "orientation": "portrait"
+          }
+        ],
         "addlPermissions_": "",
         "excludedLibraries_": "",
         "iosProvs_": [],
         "cordovaCLIVersion_": "4.1.2",
         "crosswalkVersion_": "11",
         "appVersion_": "0.0.1",
-        "appAuthor_": "Intel XDK",
-        "appDescription_": "Template to develop a Cordova mobile web app using the App Designer UI editor.",
+        "appAuthor_": "Rafael S. Meneses",
+        "appDescription_": "Aplicativo para identificar focos de lixo mal armazenados na sua cidade.",
         "appVersionCode_": "1"
       },
       "iOS": {

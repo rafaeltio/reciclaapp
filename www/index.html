@@ -5,6 +5,7 @@
   -->
 
     <head>
+        <link rel="stylesheet" type="text/css" href="media_button_bar/css/media_button_bar.css">
         <meta charset="UTF-8">
         <link rel="stylesheet" type="text/css" href="app_framework/2.1/css/af.ui.min.css">
         <link rel="stylesheet" type="text/css" href="app_framework/2.1/css/icons.min.css">
@@ -78,9 +79,10 @@
         -->
         <script type="application/javascript" src="lib/jquery.min.js"></script>
         <script type="application/javascript" src="google_maps/google_maps.js"></script>
+        <script type="application/javascript" src="app_framework/themeRelease.js"></script>
     </head>
 
-    <body id="afui" class="">
+    <body id="afui" class="android light">
 
         <!-- IMPORTANT: Do not include a weinre script tag as part of your release builds! -->
         <!-- Place your remote debugging (weinre) script URL from the Test tab here, if it does not work above -->
@@ -91,15 +93,19 @@
 
                     <div class="table-thing with-label widget uib_w_1 d-margins" data-uib="app_framework/input" data-ver="1">
                         <label class="narrow-control label-top-left" for="txtNome">Nome</label>
+
                         <input class="wide-control" placeholder="Digite seu nome" type="text" id="txtNome">
                     </div>
                     <div class="table-thing with-label widget uib_w_2 d-margins" data-uib="app_framework/input" data-ver="1">
                         <label class="narrow-control label-top-left" for="txtEmail">E-mail</label>
+
                         <input class="wide-control" type="email" id="txtEmail">
                     </div>
                     <div class="table-thing with-label widget uib_w_4 d-margins" data-uib="app_framework/select" data-ver="1">
                         <label class="narrow-control label-top-left" for="cboTipoLixo">Tipo de Lixo</label>
+
                         <select class="wide-control" id="cboTipoLixo">
+                            <option selected=""></option>
                             <option>Entulho</option>
                             <option>Lixo caseiro</option>
                             <option>Lixo hospitalar</option>
@@ -107,7 +113,23 @@
                             <option>Outros</option>
                         </select>
                     </div>
-                    <div class="widget uib_w_6 maps-size d-margins" data-uib="media/google_maps" data-ver="0" data-rpath="null" data-zoom="8" id="mapsWd" data-center-latitude="-38.5192009" data-center-longitude="-3.7913514"></div><a class="button widget uib_w_5 d-margins green" data-uib="app_framework/button" data-ver="1">Enviar</a>
+                    <div class="table-thing with-label widget uib_w_6 d-margins" data-uib="app_framework/input" data-ver="1">
+                        <label class="narrow-control label-top-left" for="txtLogradouro">Endereço</label>
+
+                        <input class="wide-control" placeholder="Av. Local do Lixo" type="text" id="txtLogradouro">
+                    </div>
+                    <div class="table-thing with-label widget uib_w_7 d-margins" data-uib="app_framework/input" data-ver="1">
+                        <label class="narrow-control label-top-left" for="txtNumero">Número</label>
+
+                        <input class="wide-control" type="number" id="txtNumero">
+                    </div>
+                    <div class="table-thing with-label widget uib_w_8 d-margins" data-uib="app_framework/input" data-ver="1">
+                        <label class="narrow-control label-top-left" for="txtBairro">Bairro</label>
+
+                        <input class="wide-control" placeholder="Bairro do Lixo" type="text" id="txtBairro">
+                    </div>
+                    <a class="button widget uib_w_5 d-margins icon check green" data-uib="app_framework/button" data-ver="1" id="btnEnviar">Enviar</a>
+
                 </div>
             </div>
 
