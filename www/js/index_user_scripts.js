@@ -6,21 +6,22 @@
  */
  function register_event_handlers()
  {
-    $("#loading").ajaxStart(function(){
-        $(this).show();
-        $('#btnEnviar').attr('disabled', 'disabled');
-    });
-    $("#loading").ajaxStop(function(){
-        $(this).hide();
-        $('#btnEnviar').removeAttr('disabled');
-    });
+    alert('Não esqueça de ligar o serviço de localização.');
      /* button  Enviar */
     $(document).on("click", ".uib_w_5", function(evt)
     {
+        $("#loading").show();
+        $(this).attr('disabled', 'disabled')
         navigator.geolocation.getCurrentPosition(onSuccess, onError, options);
     });
     
- }
+     /* button  #btnImagemLixo */
+    $(document).on("click", "#btnImagemLixo", function(evt)
+    {
+        capturePhoto();
+    });
+    
+    }
  document.addEventListener("app.Ready", register_event_handlers, false);
 })();
 var options = {
@@ -52,9 +53,7 @@ var onSuccess = function(position)
         return false;
     }
     
-    var url = 'http://jupitertec.com.br/recicla/servico.php?nome=' + nome + '&email=' + email + '&logradouro=' + logradouro + '&numero=' + numero + '&bairro=' + bairro + '&tipoLixo=' + tipoLixo + '&latitude=' + position.coords.latitude + '&longitude=' + position.coords.longitude;
-    
-    alert(url);
+    var url = 'http://reciclaapp.ml/service/servico.php?nome=' + nome + '&email=' + email + '&logradouro=' + logradouro + '&numero=' + numero + '&bairro=' + bairro + '&tipoLixo=' + tipoLixo + '&latitude=' + position.coords.latitude + '&longitude=' + position.coords.longitude;
     
     // Docs: http://api.jquery.com/jquery.get/
     apiCall = $.get(url);
@@ -62,13 +61,22 @@ var onSuccess = function(position)
     // Runs reviewsCallback if get call is successful.
     apiCall.success(function(data) 
     {
+        $('#btnEnviar').removeAttr('disabled');
+        $("#loading").hide();
+        
         console.log('success: ' + apiCall.status);
+        
         if (apiCall.readyState == 4) 
         {
             if (apiCall.status == 200)
+            {
                 reviewsCallback(data);
+                alert('Salvo com sucesso!');
+            }
             else
+            {
                 alert('Error: ' + apiCall.status);
+            }
         }
     });
     
@@ -102,5 +110,69 @@ function onError(error)
 function reviewsCallback(data) 
 {
     navigator.vibrate(1000);
-    alert('Salvo com sucesso!');
+}
+
+//camera
+
+ function onErr(message) {
+     alert('Failed to get the picture: ' + message);
+ }
+
+function onPhotoDataSuccess(imageData) {
+      // Uncomment to view the base64-encoded image data
+      // console.log(imageData);
+
+      // Get image handle
+      //
+      var smallImage = document.getElementById('imgLixo');
+
+      // Unhide image elements
+      //
+      smallImage.style.display = 'block';
+
+      // Show the captured photo
+      // The in-line CSS rules are used to resize the image
+      //
+      smallImage.src = "data:image/jpeg;base64," + imageData;
+    alert(smallImage.src);
+    }
+
+function onPhotoURISuccess(imageURI) {
+  // Uncomment to view the image file URI
+  // console.log(imageURI);
+
+  // Get image handle
+  //
+  var largeImage = document.getElementById('img');
+
+  // Unhide image elements
+  //
+  largeImage.style.display = 'block';
+
+  // Show the captured photo
+  // The in-line CSS rules are used to resize the image
+  //
+  largeImage.src = imageURI;
+}
+
+function capturePhoto() {
+    $('#imgLixo').show();
+  // Take picture using device camera and retrieve image as base64-encoded string
+  navigator.camera.getPicture(onPhotoDataSuccess, onErr, { quality: 50,
+    destinationType: Camera.DestinationType.DATA_URL });
+}
+
+function capturePhotoEdit() {
+  // Take picture using device camera, allow edit, and retrieve image as base64-encoded string
+  navigator.camera.getPicture(onPhotoDataSuccess, onErr, { quality: 20, allowEdit: true,
+    destinationType: destinationType.DATA_URL });
+}
+
+// A button will call this function
+//
+function getPhoto(source) {
+  // Retrieve image file location from specified source
+  navigator.camera.getPicture(onPhotoURISuccess, onErr, { quality: 50,
+    destinationType: destinationType.FILE_URI,
+    sourceType: source });
 }

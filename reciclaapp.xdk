@@ -6,7 +6,7 @@
       "projectTypeName": "com.intel.xdk.projecttype.jsapp",
       "src": "appDesigner",
       "projectGuid": "e1829217-eaf5-46bf-b7b3-728db36069cd",
-      "lastModifiedDate": 1436141919849,
+      "lastModifiedDate": 1439666752557,
       "creationDate": 1435931355849
     },
     "XDK-app-designer": "true",
@@ -48,6 +48,15 @@
       {
         "id": "org.apache.cordova.vibration",
         "version": "0.3.12",
+        "selectedState": "Included",
+        "data": {},
+        "paramvals": {},
+        "dependsOn": [],
+        "dependedBy": []
+      },
+      {
+        "id": "org.apache.cordova.camera",
+        "version": "0.3.4",
         "selectedState": "Included",
         "data": {},
         "paramvals": {},

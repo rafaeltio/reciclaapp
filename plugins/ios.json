@@ -10,7 +10,8 @@
         "org.apache.cordova.device": {},
         "org.apache.cordova.splashscreen": {},
         "org.apache.cordova.geolocation": {},
-        "org.apache.cordova.vibration": {}
+        "org.apache.cordova.vibration": {},
+        "org.apache.cordova.camera": {}
     },
     "dependent_plugins": {
         "org.apache.cordova.file": {}
